@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Truth Connect</title>
+</head>
+<body>
+    <h1>Truth Connect - Misinformation Detector</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="text" rows="4" cols="50" placeholder="Paste TikTok caption..."></textarea><br/>
+        <button type="submit">Analyze</button>
+    </form>
+    {% if request.method == "POST" %}
+        <p><strong>Result:</strong> {{ verdict }}</p>
+    {% endif %}
+</body>
+</html>
